@@ -10,6 +10,12 @@
 #import <GLKit/GLKit.h>
 #import "GLKProgram.h"
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
+#define XBDispatchRelease(d)
+#else
+#define XBDispatchRelease(d) (dispatch_release(d));
+#endif
+
 @class XBFilteredView;
 
 @protocol XBFilteredViewDelegate <NSObject>
